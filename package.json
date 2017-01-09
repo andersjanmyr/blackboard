@@ -1,0 +1,23 @@
+{
+  "name": "blackboard",
+  "version": "1.0.0",
+  "description": "Alexa skill for leaving notes for people. You know, like a blackboard",
+  "scripts": {
+    "create": "claudia create --name blackboard --region us-east-1 --handler main.handler",
+    "test": "claudia test-lambda",
+    "update": "claudia update"
+  },
+  "keywords": [
+    "alexa",
+    "blackboard",
+    "notes"
+  ],
+  "author": "Anders Janmyr <anders@janmyr.com>",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-sdk": "^1.0.6"
+  },
+  "devDependencies": {
+    "claudia": "^2.5.0"
+  }
+}

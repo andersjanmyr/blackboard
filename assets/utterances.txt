@@ -1,0 +1,4 @@
+AddNote add note for {Name}
+EraseNote erase note for {Name}
+ReadNote read note for {Name}
+TheNote {note|Note}

@@ -1,0 +1,40 @@
+{
+  "intents": [
+    {
+      "intent": "AddNote",
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "EraseNote",
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "ReadNote",
+      "slots": [
+        {
+          "name": "name",
+          "type": "AMAZON.US_FIRST_NAME"
+        }
+      ]
+    },
+    {
+      "intent": "Note",
+      "slots": [
+        {
+          "name": "note",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    }
+  ]
+}

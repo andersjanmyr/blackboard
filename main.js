@@ -72,20 +72,47 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTE, {
     }
 });
 
-// These handlers are not bound to a state
-var guessAttemptHandlers = {
-    'TooHigh': function(val) {
-        this.emit(':ask', val.toString() + ' is too high.', 'Try saying a smaller number.');
-    },
-    'TooLow': function(val) {
-        this.emit(':ask', val.toString() + ' is too low.', 'Try saying a larger number.');
-    },
-    'JustRight': function(callback) {
-        this.handler.state = states.STARTMODE;
-        this.attributes['gamesPlayed']++;
-        callback();
-    },
-    'NotANum': function() {
-        this.emit(':ask', 'Sorry, I didn\'t get that. Try saying a number.', 'Try saying a number.');
-    }
-};
+
+if (require.main === module) {
+    var event = {
+        "session": {
+            "sessionId": "SessionId.fe619694-da57-40f1-99d8-f127949561bb",
+            "application": {
+                "applicationId": "amzn1.ask.skill.61d7c258-1de1-48af-be3d-36797fe49007"
+            },
+            "attributes": {},
+            "user": {
+                "userId": "amzn1.ask.account.AE3ICLG2HNHNY25S25S62NNYSWCHWF5PUZILIKLEPHKKHRESLI63P23AK6GL32ZWQKV55UXQAUEIUEY2CHVSA54WQWYEPTIA73LFV6XJLXJLLPE3XMCJARTD4N5CQYOE6BIV22DVEZSJR26BWFS4ZU6DR2JQVZFFW7VNV5CGNY3G3DQVAPAHGVFBKQG5SB72QSYUZSLMFFCO2WQ"
+            },
+            "new": true
+        },
+        "request": {
+            "type": "IntentRequest",
+            "requestId": "EdwRequestId.7798533f-3cd9-4162-9849-b7706670bb77",
+            "locale": "en-US",
+            "timestamp": "2017-01-12T01:28:35Z",
+            "intent": {
+                "name": "EraseNote",
+                "slots": {
+                    "Name": {
+                        "name": "Name",
+                        "value": "Nina"
+                    }
+                }
+            }
+        },
+        "version": "1.0"
+    };
+
+    var context = {
+        fail: function() {
+            console.log('fail', arguments);
+        },
+        succeed: function() {
+            console.log('success', arguments);
+        }
+    };
+    exports.handler(event, context, function() {
+        console.log('arguments', arguments);
+    });
+}

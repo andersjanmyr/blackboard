@@ -81,7 +81,12 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
         delete this.attributes['STATE'];
         var message = 'Added note for ' + name + ': ' + note;
         console.log(message);
-        this.emit(':tell', message, message);
+        this.emit(':tellWithCard', message, 'Blackboard', message);
+    },
+    'Unhandled': function() {
+        var name = this.attributes['session_name'];
+        var message = 'Please, add a note for ' + name;
+        this.emit(':ask', message, message);
     }
 });
 

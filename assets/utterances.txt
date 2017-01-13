@@ -1,4 +1,4 @@
-AddNote add note for {Name}
-EraseNote erase note for {Name}
-ReadNote read note for {Name}
+AddNote to add note for {Name}
+EraseNote to erase note for {Name}
+ReadNote to read note for {Name}
 TheNote {note|Note}

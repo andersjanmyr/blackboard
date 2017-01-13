@@ -17,12 +17,11 @@ var states = {
 var topLevelHandlers = {
     'LaunchRequest': function() {
         this.handler.state = '';
-        this.emit(':ask', 'Welcome to Blackboard. Would you like me to add, read, or '
-            + 'erase a note?')
+        this.emit(':tell', 'Welcome to Blackboard. I can add, read, or erase a note.')
     },
     'AMAZON.HelpIntent': function() {
-        var message = 'I can add, read, or erase a note. What would you like to do?';
-        this.emit(':ask', message, message);
+        var message = 'I can add, read, or erase a note.';
+        this.emit(':tell', message, message);
     },
     'SessionEndedRequest': function () {
         console.log('session ended!');
@@ -33,10 +32,10 @@ var topLevelHandlers = {
         var name = this.event.request.intent.slots.Name.value;
         if (!name) name = 'everyone';
         this.handler.state = states.NOTEMODE;
-        this.attributes['_name'] = name;
-        var message = 'Record note for ' + name;
+        this.attributes['session_name'] = name;
+        var message = 'Please, record note for ' + name;
         console.log(message, arguments);
-        this.emit(':ask', message, message)
+        this.emit(':askWithCard', message, message, 'Blackboard', message)
     },
     'ReadNote': function() {
         console.log('ReadNote', this.event.request.intent);
@@ -57,20 +56,22 @@ var topLevelHandlers = {
         if (!name) name = 'everyone';
         this.handler.state = '';
         delete this.attributes[name];
-        console.log('deleted note for name:', name);
+        var message = 'Erased note for ' + name + '.'
+        console.log('Erased note for name:', name);
+        this.emit(':tellWithCard', message, 'Blackboard', message)
     },
     'Unhandled': function() {
-        var message = 'I can add, read, or erase a note. What would you like to do?';
-        this.emit(':ask', message, message);
+        var message = 'I can add, read, or erase a note.';
+        this.emit(':tell', message, message);
     }
 };
 
 var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
-    'Unhandled': function() {
+    'TheNote': function() {
         console.log('Unhandled', this.event.request.intent);
         console.log('attributes', this.attributes);
         var note = this.event.request.intent.slots.Note.value;
-        var name = this.attributes['_name'] = name;
+        var name = this.attributes['session_name'];
         if (!note) {
             console.log('No note')
         }

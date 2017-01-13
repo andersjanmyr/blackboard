@@ -30,7 +30,7 @@ var topLevelHandlers = {
     },
     'AddIntent': function(name) {
         if (!name) name = 'everyone';
-        this.handler.state = state.NOTEMODE;
+        this.handler.state = states.NOTEMODE;
         var message = 'Record note for ' + name;
         this.emit(':ask', message, message)
     },

@@ -1,4 +1,52 @@
 AddNote to add note for {Name}
+AddNote to save note for {Name}
 EraseNote to erase note for {Name}
+EraseNote to delete note for {Name}
 ReadNote to read note for {Name}
-TheNote {note|Note}
+ReadNote to get note for {Name}
+TheNote {one|Note}
+TheNote {one two|Note}
+TheNote {one two three|Note}
+TheNote {one two three four|Note}
+TheNote {one two three four five|Note}
+TheNote {one two three four five six|Note}
+TheNote {one two three four five six seven|Note}
+TheNote {one two three four five six seven eight|Note}
+TheNote {one two three four five six seven eight nine|Note}
+TheNote {one two three four five six seven eight nine ten|Note}
+TheNote {one two three four five six seven eight nine ten eleven|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fourteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen eighteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u v|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u v w|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u v w x|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u v w x y|Note}
+TheNote {one two three four five six seven eight nine ten eleven twelve thirteen fifteen sixteen seventeen nineteen twenty a b c d e f g h i j k l m n o p q r s t u v w x y z|Note}

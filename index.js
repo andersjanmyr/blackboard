@@ -28,14 +28,19 @@ var topLevelHandlers = {
         console.log('session ended!');
         this.emit(':saveState', true);
     },
-    'AddNote': function(name) {
+    'AddNote': function() {
+        console.log('AddNote', this.event.request.intent);
+        var name = this.event.request.intent.slots.Name.value;
         if (!name) name = 'everyone';
         this.handler.state = states.NOTEMODE;
+        this.attributes['_name'] = name;
         var message = 'Record note for ' + name;
         console.log(message, arguments);
         this.emit(':ask', message, message)
     },
-    'ReadNote': function(name) {
+    'ReadNote': function() {
+        console.log('ReadNote', this.event.request.intent);
+        var name = this.event.request.intent.slots.Name.value;
         if (!name) name = 'everyone';
         this.handler.state = '';
         var note;
@@ -46,7 +51,9 @@ var topLevelHandlers = {
         console.log('name:', name, 'note:', note);
         this.emit(':tellWithCard', note, 'Blackboard', note)
     },
-    'EraseNote': function(name) {
+    'EraseNote': function() {
+        console.log('EraseNote', this.event.request.intent);
+        var name = this.event.request.intent.slots.Name.value;
         if (!name) name = 'everyone';
         this.handler.state = '';
         delete this.attributes[name];
@@ -58,19 +65,20 @@ var topLevelHandlers = {
     }
 };
 
-var noteHandlers = Alexa.CreateStateHandler(states.NOTE, {
-    'TheNote': function(note) {
+var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
+    'Unhandled': function() {
+        console.log('Unhandled', this.event.request.intent);
+        console.log('attributes', this.attributes);
+        var note = this.event.request.intent.slots.Note.value;
+        var name = this.attributes['_name'] = name;
         if (!note) {
             console.log('No note')
         }
         this.handler.state = '';
         this.attributes[name] = note;
-        console.log('added note for name:', name, note);
-    },
-    'Unhandled': function() {
-        var message = 'This could not possibly happen';
-        console.log('Unhandled', argumants);
-        this.emit(':ask', message, message);
+        var message = 'Added note for ' + name + ': ' + note;
+        console.log(message);
+        this.emit(':tell', message, message);
     }
 });
 

@@ -28,13 +28,14 @@ var topLevelHandlers = {
         console.log('session ended!');
         this.emit(':saveState', true);
     },
-    'AddIntent': function(name) {
+    'AddNote': function(name) {
         if (!name) name = 'everyone';
         this.handler.state = states.NOTEMODE;
         var message = 'Record note for ' + name;
+        console.log(message, arguments);
         this.emit(':ask', message, message)
     },
-    'ReadIntent': function(name) {
+    'ReadNote': function(name) {
         if (!name) name = 'everyone';
         this.handler.state = '';
         var note;
@@ -45,7 +46,7 @@ var topLevelHandlers = {
         console.log('name:', name, 'note:', note);
         this.emit(':tellWithCard', note, 'Blackboard', note)
     },
-    'EraseIntent': function(name) {
+    'EraseNote': function(name) {
         if (!name) name = 'everyone';
         this.handler.state = '';
         delete this.attributes[name];
@@ -58,7 +59,7 @@ var topLevelHandlers = {
 };
 
 var noteHandlers = Alexa.CreateStateHandler(states.NOTE, {
-    'NoteIntent': function(note) {
+    'TheNote': function(note) {
         if (!note) {
             console.log('No note')
         }
@@ -68,6 +69,7 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTE, {
     },
     'Unhandled': function() {
         var message = 'This could not possibly happen';
+        console.log('Unhandled', argumants);
         this.emit(':ask', message, message);
     }
 });

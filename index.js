@@ -17,7 +17,7 @@ var states = {
 var topLevelHandlers = {
     'LaunchRequest': function() {
         this.handler.state = '';
-        this.emit(':tell', 'Welcome to Blackboard. I can add, read, or erase a note.')
+        this.emit(':tell', 'Welcome to Message Board. I can add, read, or erase a note.')
     },
     'AMAZON.HelpIntent': function() {
         var message = 'I can add, read, or erase a note.';
@@ -35,7 +35,7 @@ var topLevelHandlers = {
         this.attributes['session_name'] = name;
         var message = 'Please, record note for ' + name;
         console.log(message, arguments);
-        this.emit(':askWithCard', message, message, 'Blackboard', message)
+        this.emit(':askWithCard', message, message, 'Message Board', message)
     },
     'ReadNote': function() {
         console.log('ReadNote', this.event.request.intent);
@@ -48,7 +48,7 @@ var topLevelHandlers = {
         else
            note = 'There is no note for ' + name;
         console.log('name:', name, 'note:', note);
-        this.emit(':tellWithCard', note, 'Blackboard', note)
+        this.emit(':tellWithCard', note, 'Message Board', note)
     },
     'EraseNote': function() {
         console.log('EraseNote', this.event.request.intent);
@@ -58,7 +58,28 @@ var topLevelHandlers = {
         delete this.attributes[name];
         var message = 'Erased note for ' + name + '.'
         console.log('Erased note for name:', name);
-        this.emit(':tellWithCard', message, 'Blackboard', message)
+        this.emit(':tellWithCard', message, 'Message Board', message)
+    },
+    'EraseAllNotes': function() {
+        console.log('EraseAllNotes', this.event.request.intent);
+        this.handler.state = '';
+        Object.keys(this.attributes).forEach(function(key) {
+            delete this.attributes[key];
+        }, this);
+        var message = 'Erased all notes';
+        console.log(message);
+        this.emit(':tellWithCard', message, 'Message Board', message)
+    },
+    'ReadAllNotes': function() {
+        console.log('ReadAllNotes', this.event.request.intent);
+        this.handler.state = '';
+        var message = 'Reading all notes:';
+        Object.keys(this.attributes).forEach(function(key) {
+            if (key != 'session_name' || key != 'STATE')
+                message += ' Note for ' + name +': '  + this.attributes[key] + '.';
+        }, this);
+        console.log(message);
+        this.emit(':tellWithCard', message, 'Message Board', message)
     },
     'Unhandled': function() {
         var message = 'I can add, read, or erase a note.';
@@ -81,7 +102,7 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
         delete this.attributes['STATE'];
         var message = 'Added note for ' + name + ': ' + note;
         console.log(message);
-        this.emit(':tellWithCard', message, 'Blackboard', message);
+        this.emit(':tellWithCard', message, 'Message Board', message);
     },
     'Unhandled': function() {
         var name = this.attributes['session_name'];

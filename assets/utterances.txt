@@ -1,9 +1,43 @@
 AddNote to add note for {Name}
+AddNote add note for {Name}
 AddNote to save note for {Name}
+AddNote save note for {Name}
+AddNote to add message for {Name}
+AddNote add message for {Name}
+AddNote to save message for {Name}
+AddNote save message for {Name}
 EraseNote to erase note for {Name}
+EraseNote erase note for {Name}
 EraseNote to delete note for {Name}
+EraseNote delete note for {Name}
+EraseNote to erase message for {Name}
+EraseNote erase message for {Name}
+EraseNote to delete message for {Name}
+EraseNote delete message for {Name}
 ReadNote to read note for {Name}
+ReadNote read note for {Name}
 ReadNote to get note for {Name}
+ReadNote get note for {Name}
+ReadNote to read message for {Name}
+ReadNote read message for {Name}
+ReadNote to get message for {Name}
+ReadNote get message for {Name}
+EraseAllNotes to erase all notes
+EraseAllNotes to delete all notes
+EraseAllNotes to erase all messages
+EraseAllNotes to delete all messages
+EraseAllNotes erase all notes
+EraseAllNotes delete all notes
+EraseAllNotes erase all messages
+EraseAllNotes delete all messages
+ReadAllNotes to read all notes
+ReadAllNotes to get all notes
+ReadAllNotes to read all messages
+ReadAllNotes to get all messages
+ReadAllNotes read all notes
+ReadAllNotes get all notes
+ReadAllNotes read all messages
+ReadAllNotes get all messages
 TheNote {one|Note}
 TheNote {one two|Note}
 TheNote {one two three|Note}

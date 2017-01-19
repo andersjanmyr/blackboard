@@ -1,12 +1,13 @@
 {
-  "name": "blackboard",
+  "name": "messageboard",
   "version": "1.0.0",
-  "description": "Alexa skill for leaving notes for people. You know, like a blackboard",
+  "description": "Alexa skill for leaving notes for people. You know, like a message board",
   "scripts": {
   },
   "keywords": [
     "alexa",
     "blackboard",
+    "message board",
     "notes"
   ],
   "author": "Anders Janmyr <anders@janmyr.com>",

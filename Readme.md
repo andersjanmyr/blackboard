@@ -1,3 +1,4 @@
+<img align="right" alt="Message board logo" src="assets/messageboard-108.png?raw=true">
 # Message Board
 
 An Amazon Echo skill that adds, reads and erases named messages.

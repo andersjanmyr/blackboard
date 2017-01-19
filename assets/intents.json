@@ -4,7 +4,7 @@
       "intent": "AddNote",
       "slots": [
         {
-          "name": "name",
+          "name": "Name",
           "type": "AMAZON.US_FIRST_NAME"
         }
       ]
@@ -13,7 +13,7 @@
       "intent": "EraseNote",
       "slots": [
         {
-          "name": "name",
+          "name": "Name",
           "type": "AMAZON.US_FIRST_NAME"
         }
       ]
@@ -22,7 +22,7 @@
       "intent": "ReadNote",
       "slots": [
         {
-          "name": "name",
+          "name": "Name",
           "type": "AMAZON.US_FIRST_NAME"
         }
       ]
@@ -36,10 +36,10 @@
       "slots": []
     },
     {
-      "intent": "Note",
+      "intent": "TheNote",
       "slots": [
         {
-          "name": "note",
+          "name": "Note",
           "type": "AMAZON.LITERAL"
         }
       ]

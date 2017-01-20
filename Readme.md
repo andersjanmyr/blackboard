@@ -20,7 +20,7 @@ An Amazon Echo skill that adds, reads and erases named messages.
 ### Add another message
 
 * - Alexa, tell message board to add message for Rasmus
-* -> Please, record message for Nina
+* -> Please, record message for Rasmus
 * Please, walk the dogs when you come home from school.
 * -> Added message for Rasmus: Please, walk the dogs when you come home from school.
 

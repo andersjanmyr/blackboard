@@ -9,7 +9,7 @@ An Amazon Echo skill that adds, reads and erases named messages.
 
 * - Alexa, tell message board to add message for Nina
 * -> Please, record message for Nina
-* - Please, walk the dog when you come home from school.
+* - Please, walk the dogs when you come home from school.
 * -> Added message for Nina: Please, walk the dogs when you come home from school.
 
 ### Read a message
@@ -21,8 +21,8 @@ An Amazon Echo skill that adds, reads and erases named messages.
 
 * - Alexa, tell message board to add message for Rasmus
 * -> Please, record message for Rasmus
-* Please, walk the dogs when you come home from school.
-* -> Added message for Rasmus: Please, walk the dogs when you come home from school.
+Please, take out the trash and do your homework.
+* -> Added message for Rasmus: Please, take out the trash and do your homework.
 
 ### Read all messages
 

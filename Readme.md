@@ -44,6 +44,8 @@ Please, take out the trash and do your homework.
 ## Available intents
 
 ```
+Alexa, open message board
+Alexa, tell message board help
 Alexa, tell message board to add note for {Name}
 Alexa, tell message board add note for {Name}
 Alexa, tell message board to save note for {Name}

@@ -11,17 +11,17 @@ exports.handler = function(event, context, callback) {
 };
 
 var states = {
-    NOTEMODE: '_NOTEMODE' // User has asked to add a note
+    NOTEMODE: '_NOTEMODE' // User has asked to add a message
 };
 
 var topLevelHandlers = {
     'LaunchRequest': function() {
         this.handler.state = '';
-        this.emit(':tell', 'Welcome to Message Board. I can add, read, or erase a note.')
-    },
-    'AMAZON.HelpIntent': function() {
-        var message = 'I can add, read, or erase messages.';
-        this.emit(':tell', message, message);
+        var message = 
+        this.emit(':ask', `Welcome to Message Board.
+            I can add, read and erase messages. Say help for help!`,
+            'Say help for help or stop to stop.'
+        )
     },
     'SessionEndedRequest': function () {
         console.log('session ended!');
@@ -81,6 +81,22 @@ var topLevelHandlers = {
         console.log(message);
         this.emit(':tellWithCard', message, 'Message Board', message)
     },
+    'AMAZON.StopIntent': function () {
+        this.emit(':tell', 'OK', 'OK');
+    },
+    'AMAZON.CancelIntent': function() {
+        this.emit(':tell', 'OK', 'OK');
+    },
+    'AMAZON.HelpIntent': function() {
+        var message = `I can add, read, or erase messages. Examples:
+Alexa, tell message board to add message for Nina.
+Alexa, tell message board to read message for Nina.
+Alexa, tell message board to erase message for Nina.
+Alexa, tell message board to read all messages.
+Alexa, tell message board to erase all messages.
+`;
+        this.emit(':tell', message, message);
+    },
     'Unhandled': function() {
         var message = 'I can add, read, or erase messages.';
         this.emit(':tell', message, message);
@@ -103,6 +119,12 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
         var message = 'Added message for ' + name + ': ' + note;
         console.log(message);
         this.emit(':tellWithCard', message, 'Message Board', message);
+    },
+    'AMAZON.StopIntent': function () {
+        this.emit(':tell', 'OK', 'OK');
+    },
+    'AMAZON.CancelIntent': function() {
+        this.emit(':tell', 'OK', 'OK');
     },
     'Unhandled': function() {
         var name = this.attributes['session_name'];

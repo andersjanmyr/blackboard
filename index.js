@@ -88,14 +88,15 @@ var topLevelHandlers = {
         this.emit(':tell', 'OK', 'OK');
     },
     'AMAZON.HelpIntent': function() {
-        var message = `I can add, read, or erase messages. Examples:
-Alexa, tell message board to add message for Nina.
-Alexa, tell message board to read message for Nina.
-Alexa, tell message board to erase message for Nina.
-Alexa, tell message board to read all messages.
-Alexa, tell message board to erase all messages.
+        var message = `Examples:
+Add message for Nina.
+Read message for Nina.
+Erase message for Nina.
+Read all messages.
+Erase all messages.
 `;
-        this.emit(':tell', message, message);
+        this.emit(':ask', message, 'Say help to repeat or stop to stop.'
+);
     },
     'Unhandled': function() {
         var message = 'I can add, read, or erase messages.';
@@ -105,7 +106,6 @@ Alexa, tell message board to erase all messages.
 
 var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
     'TheNote': function() {
-        console.log('Unhandled', this.event.request.intent);
         console.log('attributes', this.attributes);
         var note = this.event.request.intent.slots.Note.value;
         var name = this.attributes['session_name'];
@@ -127,6 +127,7 @@ var noteHandlers = Alexa.CreateStateHandler(states.NOTEMODE, {
         this.emit(':tell', 'OK', 'OK');
     },
     'Unhandled': function() {
+        console.log('Unhandled', this.event.request.intent);
         var name = this.attributes['session_name'];
         var message = 'Please, add a message for ' + name;
         this.emit(':ask', message, message);

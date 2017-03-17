@@ -6,33 +6,16 @@
 
 set -o errexit
 
-region='eu-west-1'
+region='us-east-1'
 
-if [ $# -lt 2 ]
-then
-  echo 'Missing required parameters'
-  echo "Usage $0 <function> <role_stack_name> [zip] [timeout]"
-  exit 1
-fi
+func="Blackboard"
+zip="./messageboard.zip"
 
-func="$1"
-role_stack_name="$2"
-zip=${3:-"./${func}.zip"}
-timeout=${4:-"10"}
-
-file="./${func}.js"
-description="Cloud Formation Custom Resource: $func"
-
-role_arn() {
-  aws cloudformation describe-stacks \
-    --region $region \
-    --stack-name $role_stack_name \
-    | jq '.Stacks[0].Outputs[]| select(.OutputKey=="RoleArn")|.OutputValue' \
-    | tr -d \"
-}
+description="Adds, reads and erases note from a virtual blackboard"
 
 zip_package() {
-  zip -qr $zip $file
+  rm -f $zip
+  zip -r $zip index.js package.json node_modules/
 }
 
 function_exists() {
@@ -44,17 +27,13 @@ function_exists() {
 }
 
 create_function() {
-  echo "Getting ARN for role $role_stack_name"
-  local role_arn=$(role_arn)
   echo "CREATE function $func"
   aws lambda create-function \
     --region $region \
-    --role $role_arn \
     --runtime nodejs \
     --function-name $func  \
     --description "$description" \
-    --handler ${func}.handler \
-    --timeout $timeout \
+    --handler index.handler \
     --memory-size 128 \
     --zip-file fileb://$zip
 }
